@@ -35,7 +35,7 @@ class JamoTest {
 
 	@Test
 	@DisplayName("getComponents(useCompatibilityJamo: true) Test")
-	void testJamoGetComponents_true() {
+	void testJamoGetComponentsTrue() {
 		assertThat(Jamo.Choseong.ㄱ.getComponents(true)).isEqualTo("ㄱ");
 		assertThat(Jamo.Choseong.ㄲ.getComponents(true)).isEqualTo("ㄱㄱ");
 		assertThat(Jamo.Jungseong.ㅏ.getComponents(true)).isEqualTo("ㅏ");
@@ -46,7 +46,7 @@ class JamoTest {
 
 	@Test
 	@DisplayName("getComponents(useCompatibilityJamo: false) Test")
-	void testJamoGetComponents_false() {
+	void testJamoGetComponentsFalse() {
 		assertThat(Jamo.Choseong.ㄱ.getComponents(false)).isEqualTo("ᄀ");
 		assertThat(Jamo.Choseong.ㄲ.getComponents(false)).isEqualTo("ᄀᄀ");
 		assertThat(Jamo.Jungseong.ㅏ.getComponents(false)).isEqualTo("ᅡ");

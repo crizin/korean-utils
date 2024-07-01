@@ -13,7 +13,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("new KoreanCharacter()")
-	void testConstructor_empty() {
+	void testConstructorEmpty() {
 		KoreanCharacter c = new KoreanCharacter();
 		assertThat(c.getCharacter()).isNull();
 		assertThat(c.getChoseong()).isNull();
@@ -23,7 +23,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("new KoreanCharacter(char)")
-	void testConstructor_single() {
+	void testConstructorSingle() {
 		KoreanCharacter c = new KoreanCharacter(' ');
 		assertThat(c.getCharacter()).isEqualTo(' ');
 		assertThat(c.getChoseong()).isNull();
@@ -87,7 +87,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("new KoreanCharacter(Jamo.Choseong, Jamo.Jungseong, Jamo.Jongseong)")
-	void testConstructor_parts() {
+	void testConstructorParts() {
 		/*
 		 * | Choseong | Jungseong | Jongseong | Result                   |
 		 * | -------- | --------- | --------- | ------------------------ |
@@ -171,7 +171,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("decompose(useCompatibilityJamo: true, separateDoubleConsonantAndVowel: true)")
-	void testDecompose_compatibilityJamo_separateDoubleConsonantAndVowel() {
+	void testDecomposeCompatibilityJamoSeparateDoubleConsonantAndVowel() {
 		assertThat(new KoreanCharacter().decompose(true, true)).isEqualTo(new char[] {});
 		assertThat(new KoreanCharacter('a').decompose(true, true)).isEqualTo(new char[] {'a'});
 		assertThat(new KoreanCharacter('ㅎ').decompose(true, true)).isEqualTo(new char[] {'ㅎ'});
@@ -184,7 +184,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("decompose(useCompatibilityJamo: true, separateDoubleConsonantAndVowel: false)")
-	void testDecompose_compatibilityJamo_keepDoubleConsonantAndVowel() {
+	void testDecomposeCompatibilityJamoKeepDoubleConsonantAndVowel() {
 		assertThat(new KoreanCharacter().decompose(true, false)).isEqualTo(new char[] {});
 		assertThat(new KoreanCharacter('a').decompose(true, false)).isEqualTo(new char[] {'a'});
 		assertThat(new KoreanCharacter('ㅎ').decompose(true, false)).isEqualTo(new char[] {'ㅎ'});
@@ -196,7 +196,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("decompose(useCompatibilityJamo: false, separateDoubleConsonantAndVowel: true)")
-	void testDecompose_conjoiningJamo_separateDoubleConsonantAndVowel() {
+	void testDecomposeConjoiningJamoSeparateDoubleConsonantAndVowel() {
 		assertThat(new KoreanCharacter().decompose(false, true)).isEqualTo(new char[] {});
 		assertThat(new KoreanCharacter('a').decompose(false, true)).isEqualTo(new char[] {'a'});
 		assertThat(new KoreanCharacter('ㅎ').decompose(false, true)).isEqualTo(new char[] {'ᄒ'});
@@ -208,7 +208,7 @@ class KoreanCharacterTest {
 
 	@Test
 	@DisplayName("decompose(useCompatibilityJamo: false, separateDoubleConsonantAndVowel: false)")
-	void testDecompose_conjoiningJamo_keepDoubleConsonantAndVowel() {
+	void testDecomposeConjoiningJamoKeepDoubleConsonantAndVowel() {
 		assertThat(new KoreanCharacter().decompose(false, false)).isEqualTo(new char[] {});
 		assertThat(new KoreanCharacter('a').decompose(false, false)).isEqualTo(new char[] {'a'});
 		assertThat(new KoreanCharacter('ㅎ').decompose(false, false)).isEqualTo(new char[] {'ᄒ'});
