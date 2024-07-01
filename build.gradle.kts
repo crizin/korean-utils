@@ -1,11 +1,16 @@
+import com.vanniktech.maven.publish.JavaLibrary
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
-	id("java")
+	id("java-library")
 	id("jacoco")
 	id("org.sonarqube") version "4.4.1.3373"
+	id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
 group = "io.github.crizin"
-version = "1.0.0"
+version = "0.0.1"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_1_8
@@ -31,6 +36,52 @@ sonar {
 		property("sonar.projectKey", "crizin_korean-utils")
 		property("sonar.organization", "crizin")
 		property("sonar.host.url", "https://sonarcloud.io")
+	}
+}
+
+mavenPublishing {
+	signAllPublications()
+	publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+	coordinates(
+		groupId = "io.github.crizin",
+		artifactId = "korean-utils",
+		version = "0.0.1",
+	)
+
+	configure(
+		JavaLibrary(
+			javadocJar = JavadocJar.Javadoc(),
+			sourcesJar = true,
+		)
+	)
+
+	pom {
+		name.set("Korean Utils")
+		description.set("A Java library that provides various utility functions for processing and manipulating Korean text")
+		inceptionYear.set("2024")
+		url.set("https://github.com/crizin/korean-utils")
+
+		licenses {
+			license {
+				name.set("MIT License")
+				url.set("https://opensource.org/licenses/MIT")
+			}
+		}
+
+		developers {
+			developer {
+				id.set("crizin")
+				name.set("JaeYong Lee")
+				url.set("https://github.com/crizin")
+			}
+		}
+
+		scm {
+			url.set("https://github.com/crizin/korean-utils")
+			connection.set("scm:git:git://github.com/crizin/korean-utils.git")
+			developerConnection.set("scm:git:ssh://git@github.com/crizin/korean-utils.git")
+		}
 	}
 }
 

@@ -21,6 +21,31 @@ and various other operations useful for processing Korean text.
 - N-gram generation for Korean text
 - Length calculation considering Korean character width
 
+## Installation
+
+You can include this library in your project using Maven or Gradle.
+
+### Maven
+
+Add the following dependency to your `pom.xml`:
+
+```xml
+
+<dependency>
+    <groupId>io.github.crizin</groupId>
+    <artifactId>korean-utils</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+### Gradle
+
+Add the following dependency to your build.gradle:
+
+```groovy
+implementation 'io.github.crizin:korean-utils:0.0.1'
+```
+
 ## Usage
 
 ### KoreanCharacter
