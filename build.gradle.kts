@@ -1,5 +1,6 @@
 plugins {
 	id("java")
+	id("jacoco")
 	id("org.sonarqube") version "4.4.1.3373"
 }
 
@@ -21,6 +22,10 @@ dependencies {
 	testImplementation("org.assertj:assertj-core:3.26.0")
 }
 
+jacoco {
+	toolVersion = "0.8.12"
+}
+
 sonar {
 	properties {
 		property("sonar.projectKey", "crizin_korean-utils")
@@ -35,4 +40,10 @@ tasks.withType<JavaCompile> {
 
 tasks.test {
 	useJUnitPlatform()
+}
+
+tasks.jacocoTestReport {
+	reports {
+		xml.required = true
+	}
 }
