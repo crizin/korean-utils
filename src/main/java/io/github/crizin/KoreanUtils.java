@@ -182,6 +182,13 @@ public class KoreanUtils {
 	};
 
 	/**
+	 * Private constructor to prevent instantiation of this utility class.
+	 */
+	private KoreanUtils() {
+		throw new AssertionError("KoreanUtils is a utility class and should not be instantiated");
+	}
+
+	/**
 	 * <p>Calculates the length of a text, applying a specified length for Korean characters.</p>
 	 *
 	 * <p>This method counts the length of the input text, treating non-Korean characters as length 1,
