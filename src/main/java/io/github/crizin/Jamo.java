@@ -2,9 +2,6 @@ package io.github.crizin;
 
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * <p>Interface to represent the Choseong, Jungseong, and Jongseong sounds in Korean.</p>
@@ -110,20 +107,8 @@ public interface Jamo<T extends Enum<T>> {
 		ㅍ('ᄑ', 'ㅍ', "ᄑ", "ㅍ"),
 		ㅎ('ᄒ', 'ㅎ', "ᄒ", "ㅎ");
 
-		private static final Map<Character, Choseong> CHARACTER_MAP = Stream.of(values())
-			.flatMap(element -> Stream.of(element.getConjoiningJamo(), element.getCompatibilityJamo())
-				.collect(Collectors.toMap(Function.identity(), c -> element))
-				.entrySet()
-				.stream())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-		private static final Map<String, Choseong> COMPOSE_MAP = Stream.of(values())
-			.flatMap(element -> Stream.of(element.getComponents(true), element.getComponents(false))
-				.filter(components -> components.length() > 1)
-				.collect(Collectors.toMap(Function.identity(), c -> element))
-				.entrySet()
-				.stream())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+		private static final Map<Character, Choseong> CHARACTER_MAP = JamoUtils.createCharacterMap(values());
+		private static final Map<String, Choseong> COMPOSE_MAP = JamoUtils.createComposeMap(values());
 
 		private final char conjoiningJamo;
 		private final char compatibilityJamo;
@@ -234,20 +219,8 @@ public interface Jamo<T extends Enum<T>> {
 		ㅢ('ᅴ', 'ㅢ', "ᅳᅵ", "ㅡㅣ"),
 		ㅣ('ᅵ', 'ㅣ', "ᅵ", "ㅣ");
 
-		private static final Map<Character, Jungseong> CHARACTER_MAP = Stream.of(values())
-			.flatMap(element -> Stream.of(element.getConjoiningJamo(), element.getCompatibilityJamo())
-				.collect(Collectors.toMap(Function.identity(), c -> element))
-				.entrySet()
-				.stream())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-		private static final Map<String, Jungseong> COMPOSE_MAP = Stream.of(values())
-			.flatMap(element -> Stream.of(element.getComponents(true), element.getComponents(false))
-				.filter(components -> components.length() > 1)
-				.collect(Collectors.toMap(Function.identity(), c -> element))
-				.entrySet()
-				.stream())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+		private static final Map<Character, Jungseong> CHARACTER_MAP = JamoUtils.createCharacterMap(values());
+		private static final Map<String, Jungseong> COMPOSE_MAP = JamoUtils.createComposeMap(values());
 
 		private final char conjoiningJamo;
 		private final char compatibilityJamo;
@@ -364,20 +337,8 @@ public interface Jamo<T extends Enum<T>> {
 		ㅍ('ᇁ', 'ㅍ', "ᇁ", "ㅍ"),
 		ㅎ('ᇂ', 'ㅎ', "ᇂ", "ㅎ");
 
-		private static final Map<Character, Jongseong> CHARACTER_MAP = Stream.of(values())
-			.flatMap(element -> Stream.of(element.getConjoiningJamo(), element.getCompatibilityJamo())
-				.collect(Collectors.toMap(Function.identity(), c -> element))
-				.entrySet()
-				.stream())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-		private static final Map<String, Jongseong> COMPOSE_MAP = Stream.of(values())
-			.flatMap(element -> Stream.of(element.getComponents(true), element.getComponents(false))
-				.filter(components -> components.length() > 1)
-				.collect(Collectors.toMap(Function.identity(), c -> element))
-				.entrySet()
-				.stream())
-			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+		private static final Map<Character, Jongseong> CHARACTER_MAP = JamoUtils.createCharacterMap(values());
+		private static final Map<String, Jongseong> COMPOSE_MAP = JamoUtils.createComposeMap(values());
 
 		private final char conjoiningJamo;
 		private final char compatibilityJamo;
