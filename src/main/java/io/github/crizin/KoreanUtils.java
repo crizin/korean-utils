@@ -212,7 +212,7 @@ public class KoreanUtils {
 	 * @see KoreanCharacter#isKoreanCharacter(Character)
 	 */
 	public static int length(final CharSequence text, final int koreanLength) {
-		final int length = length(text);
+		final int length = safeLength(text);
 
 		if (length == 0) {
 			return 0;
@@ -273,8 +273,8 @@ public class KoreanUtils {
 	 * @see KoreanCharacter
 	 */
 	public static boolean contains(final CharSequence text, final CharSequence searchText) {
-		final int textLength = length(text);
-		final int searchLength = length(searchText);
+		final int textLength = safeLength(text);
+		final int searchLength = safeLength(searchText);
 
 		if (textLength == 0 || searchLength == 0 || searchLength > textLength) {
 			return false;
@@ -327,7 +327,7 @@ public class KoreanUtils {
 	 * @see KoreanCharacter#isKoreanCharacter(Character)
 	 */
 	public static boolean containsKorean(final CharSequence text) {
-		final int length = length(text);
+		final int length = safeLength(text);
 
 		if (length == 0) {
 			return false;
@@ -377,7 +377,7 @@ public class KoreanUtils {
 			return condition.get();
 		}
 
-		final int prefixLength = length(prefix);
+		final int prefixLength = safeLength(prefix);
 
 		for (int i = 0; i < prefixLength; i++) {
 			KoreanCharacter textChar = new KoreanCharacter(text.charAt(i));
@@ -448,8 +448,8 @@ public class KoreanUtils {
 			return condition.get();
 		}
 
-		final int suffixLength = length(suffix);
-		final int textLength = length(text);
+		final int suffixLength = safeLength(suffix);
+		final int textLength = safeLength(text);
 
 		for (int i = suffixLength - 1, j = textLength - 1; i >= 0; i--, j--) {
 			KoreanCharacter textChar = new KoreanCharacter(text.charAt(j));
@@ -512,13 +512,13 @@ public class KoreanUtils {
 			return Optional.of(false);
 		}
 
-		final int suffixLength = length(affix);
+		final int suffixLength = safeLength(affix);
 
 		if (suffixLength == 0) {
 			return Optional.of(true);
 		}
 
-		final int textLength = length(text);
+		final int textLength = safeLength(text);
 
 		if (textLength == 0 || suffixLength > textLength) {
 			return Optional.of(false);
@@ -553,7 +553,7 @@ public class KoreanUtils {
 	 * @see #decompose(CharSequence)
 	 */
 	public static String compose(final CharSequence decomposedText) {
-		final int length = length(decomposedText);
+		final int length = safeLength(decomposedText);
 
 		if (length == 0) {
 			return "";
@@ -623,7 +623,7 @@ public class KoreanUtils {
 	 * @see #compose(CharSequence)
 	 */
 	public static String decompose(final CharSequence composedText, final boolean useCompatibilityJamo, final boolean separateDoubleConsonantAndVowel) {
-		final int length = length(composedText);
+		final int length = safeLength(composedText);
 
 		if (length == 0) {
 			return "";
@@ -756,7 +756,7 @@ public class KoreanUtils {
 	 * @see KoreanUtils.Josa
 	 */
 	public static String attachJosa(final CharSequence text, final Josa josa) {
-		final int length = length(text);
+		final int length = safeLength(text);
 
 		if (length == 0) {
 			return "";
@@ -894,7 +894,7 @@ public class KoreanUtils {
 	 *
 	 * @return the length of the CharSequence, or 0 if the CharSequence is null
 	 */
-	private static int length(final CharSequence text) {
+	private static int safeLength(final CharSequence text) {
 		return text == null ? 0 : text.length();
 	}
 }
