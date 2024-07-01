@@ -11,7 +11,7 @@
 Korean Utils는 한글 텍스트를 처리하고 조작하기 위한 Java 라이브러리입니다.
 한글 음절의 분해와 조합, 한글 음절 구조를 고려한 텍스트 검색, 그리고 한글 텍스트 처리에 유용한 다양한 기능을 제공합니다.
 
-## Features
+## 기능
 
 - 한글 음절의 분해 및 조합
 - 부분 일치를 지원하는 한글 텍스트 검색
@@ -20,7 +20,7 @@ Korean Utils는 한글 텍스트를 처리하고 조작하기 위한 Java 라이
 - 한글 텍스트에 대한 N-gram 생성
 - 한글 문자 길이를 고려한 길이 계산
 
-## Installation
+## 설치
 
 Maven이나 Gradle을 사용하여 프로젝트에 이 라이브러리를 포함할 수 있습니다.
 
@@ -51,7 +51,7 @@ implementation 'io.github.crizin:korean-utils:0.0.1'
 
 `KoreanCharacter` 클래스는 단일 한글 문자를 나타내며 이를 조작하는 메서드를 제공합니다.
 
-#### Constructors
+#### 생성자
 
 ```java
 public KoreanCharacter() {
@@ -64,7 +64,7 @@ public KoreanCharacter(Jamo.Choseong choseong, Jamo.Jungseong jungseong, Jamo.Jo
 }
 ```
 
-#### Methods
+#### 메소드
 
 - `getCharacter()`: Unicode 문자 표현을 반환합니다.
 - `getChoseong()`: 초성을 반환합니다.
@@ -103,7 +103,7 @@ class KoreanCharacterTest {
 
 `KoreanUtils` 클래스는 한글 텍스트를 처리하기 위한 유틸리티 메서드를 제공합니다.
 
-#### Methods
+#### 메소드
 
 - `length(CharSequence text, int koreanLength)`: 한글 문자에 지정된 길이를 적용하여 텍스트의 길이를 계산합니다.
 - `contains(CharSequence text, CharSequence queryText)`: 한글 자모 구성요소를 고려하여 텍스트에 검색 텍스트가 포함되어 있는지 확인합니다.
@@ -120,7 +120,7 @@ class KoreanCharacterTest {
 #### 예제
 
 ```java
-class KoreanCharacterTest {
+class KoreanUtilsTest {
 
     @Test
     void test() {
