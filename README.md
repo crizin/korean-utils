@@ -121,7 +121,7 @@ The `KoreanUtils` class provides utility methods for handling Korean text.
 #### Example
 
 ```java
-class KoreanCharacterTest {
+class KoreanUtilsTest {
 
     @Test
     void test() {
