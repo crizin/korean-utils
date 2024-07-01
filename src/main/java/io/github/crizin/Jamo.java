@@ -6,9 +6,9 @@ import java.util.Optional;
 /**
  * <p>Interface to represent the Choseong, Jungseong, and Jongseong sounds in Korean.</p>
  *
- * <h1>Define terms</h1>
+ * <h2>Define terms</h2>
  *
- * <h2>Jamo</h2>
+ * <h3>Jamo</h3>
  *
  * <p>The fundamental letters from which syllable blocks are constructed.</p>
  *
@@ -30,7 +30,7 @@ import java.util.Optional;
  *
  * <p>For example, the Korean character "한" is composed of a Chosung("ㅎ"), a Jungseong ("ㅏ"), and a Jongsung ("ㄴ").</p>
  *
- * <h1>Limit of this interface</h1>
+ * <h2>Limit of this interface</h2>
  *
  * <p>While Unicode defines a broader set of Hangul Jamo, this interface specifically targets modern Korean usage.
  * It includes only the Hangul Jamo which are modern-usage characters
@@ -434,5 +434,14 @@ public interface Jamo<T extends Enum<T>> {
 	 *   <li>Jungseong.ㅏ.compose(Jungseong.ㅓ)</li>
 	 * </ul>
 	 */
-	class JamoComposeException extends RuntimeException {}
+	class JamoComposeException extends RuntimeException {
+
+		/**
+		 * Constructs a new JamoComposeException with no detail message.
+		 * This constructor is provided for use cases where no additional information is needed or available at the time of the exception.
+		 */
+		public JamoComposeException() {
+			super();
+		}
+	}
 }
