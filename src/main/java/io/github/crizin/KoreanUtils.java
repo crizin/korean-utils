@@ -265,29 +265,29 @@ public class KoreanUtils {
 	 * </pre>
 	 *
 	 * @param text the text to search within. Can be null.
-	 * @param searchText the text to search for. Can be null.
+	 * @param queryText the text to search for. Can be null.
 	 *
-	 * @return {@code true} if the search text is found within the main text at the Jamo level,
+	 * @return {@code true} if the query text is found within the main text at the Jamo level,
 	 * {@code false} otherwise. Returns {@code false} if either input is null.
 	 *
 	 * @see KoreanCharacter
 	 */
-	public static boolean contains(final CharSequence text, final CharSequence searchText) {
+	public static boolean contains(final CharSequence text, final CharSequence queryText) {
 		final int textLength = safeLength(text);
-		final int searchLength = safeLength(searchText);
+		final int queryLength = safeLength(queryText);
 
-		if (textLength == 0 || searchLength == 0 || searchLength > textLength) {
+		if (textLength == 0 || queryLength == 0 || queryLength > textLength) {
 			return false;
 		}
 
 		List<KoreanCharacter> textCharacters = KoreanCharacter.convert(text);
-		List<KoreanCharacter> searchCharacters = KoreanCharacter.convert(searchText);
+		List<KoreanCharacter> queryCharacters = KoreanCharacter.convert(queryText);
 
-		for (int i = 0; i <= textLength - searchLength; i++) {
+		for (int i = 0; i <= textLength - queryLength; i++) {
 			boolean found = true;
 
-			for (int j = 0; j < searchText.length(); j++) {
-				if (!textCharacters.get(i + j).include(searchCharacters.get(j))) {
+			for (int j = 0; j < queryText.length(); j++) {
+				if (!textCharacters.get(i + j).include(queryCharacters.get(j))) {
 					found = false;
 					break;
 				}

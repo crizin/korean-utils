@@ -106,7 +106,7 @@ class KoreanCharacterTest {
 #### Methods
 
 - `length(CharSequence text, int koreanLength)`: 한글 문자에 지정된 길이를 적용하여 텍스트의 길이를 계산합니다.
-- `contains(CharSequence text, CharSequence searchText)`: 한글 자모 구성요소를 고려하여 텍스트에 검색 텍스트가 포함되어 있는지 확인합니다.
+- `contains(CharSequence text, CharSequence queryText)`: 한글 자모 구성요소를 고려하여 텍스트에 검색 텍스트가 포함되어 있는지 확인합니다.
 - `containsKorean(CharSequence text)`: 텍스트에 한글 문자나 자모가 포함되어 있는지 확인합니다.
 - `startsWith(CharSequence text, String prefix)`: 한글 자모 구성요소를 고려하여 텍스트가 지정된 접두사로 시작하는지 확인합니다.
 - `endsWith(CharSequence text, String suffix)`: 한글 자모 구성요소를 고려하여 텍스트가 지정된 접미사로 끝나는지 확인합니다.

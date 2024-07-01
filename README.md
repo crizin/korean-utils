@@ -107,7 +107,7 @@ The `KoreanUtils` class provides utility methods for handling Korean text.
 #### Methods
 
 - `length(CharSequence text, int koreanLength)`: Calculates the length of text, applying a specified length for Korean characters.
-- `contains(CharSequence text, CharSequence searchText)`: Checks if the text contains the search text, considering Korean Jamo components.
+- `contains(CharSequence text, CharSequence queryText)`: Checks if the text contains the search text, considering Korean Jamo components.
 - `containsKorean(CharSequence text)`: Checks if the text contains any Korean characters or Jamo.
 - `startsWith(CharSequence text, String prefix)`: Checks if the text starts with the specified prefix, considering Korean Jamo components.
 - `endsWith(CharSequence text, String suffix)`: Checks if the text ends with the specified suffix, considering Korean Jamo components.
