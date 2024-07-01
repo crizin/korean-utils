@@ -28,7 +28,7 @@ import java.util.Optional;
  *     used mainly for compatibility with older encodings and standards.</li>
  * </ul>
  *
- * <p>For example, the Korean character "한" is composed of a Chosung("ㅎ"), a Jungseong ("ㅏ"), and a Jongsung ("ㄴ").</p>
+ * <p>For example, the Korean character "한" is composed of a Choseong("ㅎ"), a Jungseong ("ㅏ"), and a Jongseong ("ㄴ").</p>
  *
  * <h2>Limit of this interface</h2>
  *

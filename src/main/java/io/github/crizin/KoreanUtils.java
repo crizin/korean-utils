@@ -465,10 +465,10 @@ public class KoreanUtils {
 			Jamo.Jongseong suffixJongseong = suffixChar.getJongseong();
 
 			if (suffixChoseong != null && suffixChar.getJungseong() == null && suffixJongseong == null) {
-				Jamo.Jongseong candidateJongsung = Jamo.Jongseong.find(suffixChoseong.getCompatibilityJamo());
+				Jamo.Jongseong candidateJongseong = Jamo.Jongseong.find(suffixChoseong.getCompatibilityJamo());
 
-				if (candidateJongsung != null) {
-					suffixJongseong = candidateJongsung;
+				if (candidateJongseong != null) {
+					suffixJongseong = candidateJongseong;
 					suffixChoseong = null;
 				}
 			}
