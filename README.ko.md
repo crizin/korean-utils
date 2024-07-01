@@ -31,9 +31,9 @@ Maven이나 Gradle을 사용하여 프로젝트에 이 라이브러리를 포함
 ```xml
 
 <dependency>
-	<groupId>io.github.crizin</groupId>
-	<artifactId>korean-utils</artifactId>
-	<version>1.0.0</version>
+    <groupId>io.github.crizin</groupId>
+    <artifactId>korean-utils</artifactId>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -79,23 +79,23 @@ public KoreanCharacter(Jamo.Choseong choseong, Jamo.Jungseong jungseong, Jamo.Jo
 ```java
 class KoreanCharacterTest {
 
-	@Test
-	void test() {
-		KoreanCharacter kc = new KoreanCharacter('한');
+    @Test
+    void test() {
+        KoreanCharacter kc = new KoreanCharacter('한');
 
-		assertThat(kc.getCharacter()).isEqualTo('한');
-		assertThat(kc.getChoseong()).isEqualTo(Jamo.Choseong.ㅎ);
-		assertThat(kc.getJungseong()).isEqualTo(Jamo.Jungseong.ㅏ);
-		assertThat(kc.getJongseong()).isEqualTo(Jamo.Jongseong.ㄴ);
-		assertThat(kc.compose('ㅈ')).isEqualTo(new KoreanCharacter('핝'));
-		assertThat(kc.decompose(true, true)).containsExactly('ㅎ', 'ㅏ', 'ㄴ');
-		assertThat(kc.include(new KoreanCharacter('ㅎ'))).isTrue();
-		assertThat(KoreanCharacter.isKoreanCharacter('한')).isTrue();
-		assertThat(KoreanCharacter.convert("한글")).containsExactly(
-			new KoreanCharacter('한'),
-			new KoreanCharacter('글')
-		);
-	}
+        assertThat(kc.getCharacter()).isEqualTo('한');
+        assertThat(kc.getChoseong()).isEqualTo(Jamo.Choseong.ㅎ);
+        assertThat(kc.getJungseong()).isEqualTo(Jamo.Jungseong.ㅏ);
+        assertThat(kc.getJongseong()).isEqualTo(Jamo.Jongseong.ㄴ);
+        assertThat(kc.compose('ㅈ')).isEqualTo(new KoreanCharacter('핝'));
+        assertThat(kc.decompose(true, true)).containsExactly('ㅎ', 'ㅏ', 'ㄴ');
+        assertThat(kc.include(new KoreanCharacter('ㅎ'))).isTrue();
+        assertThat(KoreanCharacter.isKoreanCharacter('한')).isTrue();
+        assertThat(KoreanCharacter.convert("한글")).containsExactly(
+            new KoreanCharacter('한'),
+            new KoreanCharacter('글')
+        );
+    }
 }
 ```
 
@@ -122,21 +122,21 @@ class KoreanCharacterTest {
 ```java
 class KoreanCharacterTest {
 
-	@Test
-	void test() {
-		assertThat(KoreanUtils.length("한글ABC", 2)).isEqualTo(7);
-		assertThat(KoreanUtils.contains("한글", "ㅎㄱ")).isTrue();
-		assertThat(KoreanUtils.containsKorean("한글")).isTrue();
-		assertThat(KoreanUtils.startsWith("한글", "ㅎ")).isTrue();
-		assertThat(KoreanUtils.endsWith("한글", "ㄹ")).isTrue();
-		assertThat(KoreanUtils.compose("ㅎㅏㄴ")).isEqualTo("한");
-		assertThat(KoreanUtils.decompose("한")).isEqualTo("ㅎㅏㄴ");
-		assertThat(KoreanUtils.convertEnglishTypedToKorean("gks")).isEqualTo("한");
-		assertThat(KoreanUtils.convertKoreanTypedToEnglish("한")).isEqualTo("gks");
-		assertThat(KoreanUtils.attachJosa("한", KoreanUtils.Josa.은_는)).isEqualTo("한은");
-		assertThat(KoreanUtils.ngram("한국어", 2))
-			.containsExactly("하", "ㅏㄴ", "ㄴㄱ", "구", "ㅜㄱ", "ㄱㅇ", "어");
-	}
+    @Test
+    void test() {
+        assertThat(KoreanUtils.length("한글ABC", 2)).isEqualTo(7);
+        assertThat(KoreanUtils.contains("한글", "ㅎㄱ")).isTrue();
+        assertThat(KoreanUtils.containsKorean("한글")).isTrue();
+        assertThat(KoreanUtils.startsWith("한글", "ㅎ")).isTrue();
+        assertThat(KoreanUtils.endsWith("한글", "ㄹ")).isTrue();
+        assertThat(KoreanUtils.compose("ㅎㅏㄴ")).isEqualTo("한");
+        assertThat(KoreanUtils.decompose("한")).isEqualTo("ㅎㅏㄴ");
+        assertThat(KoreanUtils.convertEnglishTypedToKorean("gks")).isEqualTo("한");
+        assertThat(KoreanUtils.convertKoreanTypedToEnglish("한")).isEqualTo("gks");
+        assertThat(KoreanUtils.attachJosa("한", KoreanUtils.Josa.은_는)).isEqualTo("한은");
+        assertThat(KoreanUtils.ngram("한국어", 2))
+            .containsExactly("하", "ㅏㄴ", "ㄴㄱ", "구", "ㅜㄱ", "ㄱㅇ", "어");
+    }
 }
 ```
 
