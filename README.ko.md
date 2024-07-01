@@ -20,31 +20,6 @@ Korean Utils는 한글 텍스트를 처리하고 조작하기 위한 Java 라이
 - 한글 텍스트에 대한 N-gram 생성
 - 한글 문자 길이를 고려한 길이 계산
 
-## Installation
-
-Maven이나 Gradle을 사용하여 프로젝트에 이 라이브러리를 포함할 수 있습니다.
-
-### Maven
-
-`pom.xml`에 다음 의존성을 추가하세요.
-
-```xml
-
-<dependency>
-    <groupId>io.github.crizin</groupId>
-    <artifactId>korean-utils</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-### Gradle
-
-`build.gradle`에 다음 의존성을 추가하세요.
-
-```groovy
-implementation 'io.github.crizin:korean-utils:1.0.0'
-```
-
 ## 사용법
 
 ### KoreanCharacter
