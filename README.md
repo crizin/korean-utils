@@ -4,8 +4,6 @@
 
 [![Build](https://github.com/crizin/korean-utils/actions/workflows/build.yml/badge.svg)](https://github.com/crizin/korean-utils/actions)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/274ee8e6cb014384b35cc6e4a3b82718)](https://app.codacy.com/gh/crizin/korean-utils/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=crizin_korean-utils&metric=alert_status)](https://sonarcloud.io/summary/overall?id=crizin_korean-utils)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=crizin_korean-utils&metric=coverage)](https://sonarcloud.io/summary/overall?id=crizin_korean-utils)
 [![License: MIT](https://img.shields.io/github/license/crizin/korean-utils)](https://opensource.org/licenses/MIT)
 
 Korean Utils is a Java library for handling and manipulating Korean text. It provides utility classes for working with Korean characters,

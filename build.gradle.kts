@@ -5,7 +5,6 @@ import com.vanniktech.maven.publish.SonatypeHost
 plugins {
 	id("java-library")
 	id("jacoco")
-	id("org.sonarqube") version "4.4.1.3373"
 	id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
@@ -29,14 +28,6 @@ dependencies {
 
 jacoco {
 	toolVersion = "0.8.12"
-}
-
-sonar {
-	properties {
-		property("sonar.projectKey", "crizin_korean-utils")
-		property("sonar.organization", "crizin")
-		property("sonar.host.url", "https://sonarcloud.io")
-	}
 }
 
 mavenPublishing {
